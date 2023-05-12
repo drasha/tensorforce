@@ -139,7 +139,7 @@ class TFOptimizer(Optimizer):
         super().initialize_given_variables(variables=variables)
 
         try:
-            self.tf_optimizer._create_all_weights(var_list=variables)
+            self.tf_optimizer.build(var_list=variables)
         except AttributeError:
             self.tf_optimizer._create_hypers()
             self.tf_optimizer._create_slots(var_list=variables)
